@@ -19,7 +19,7 @@ class CreateEmployeesTable extends Migration
             $table->string('first_name');
             $table->string('last_name')->required();
             $table->integer('company')->unsigned()->nullable();
-            $table->foreign('company')->references('id')->on('companies');
+            $table->foreign('company')->references('id')->on('companies')->onDelete('cascade');
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->timestamps();

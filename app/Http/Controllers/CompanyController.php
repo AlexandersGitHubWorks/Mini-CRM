@@ -118,7 +118,7 @@ class CompanyController extends Controller
         $company = Company::find($id);
         if ($company != null) {
             $company->delete();
-            return redirect('/home')->with('success', 'Company has been deleted.');
+            return redirect('/home')->with('success', 'Company and its Employees has been deleted.');
         }
 
         return redirect('/home')->with('warning', 'Company has not been deleted.');

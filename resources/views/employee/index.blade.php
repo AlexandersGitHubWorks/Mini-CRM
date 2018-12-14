@@ -10,7 +10,7 @@
                 <td>Company</td>
                 <td>email</td>
                 <td>Phone</td>
-                <td colspan="2">Actions</td>
+                <td colspan="3">Actions</td>
             </tr>
             </thead>
             <tbody>
@@ -24,6 +24,7 @@
                     </td>
                     <td>{{ $employee->email }}</td>
                     <td>{{ $employee->phone }}</td>
+                    <td><a href="{{ action('EmployeeController@show', $employee->id) }}" class="btn btn-primary">View</a></td>
                     <td><a href="{{ action('EmployeeController@edit', $employee->id) }}" class="btn btn-primary">Edit</a></td>
                     <td>
                         <form action="{{ action('EmployeeController@destroy', $employee->id) }}" method="post">

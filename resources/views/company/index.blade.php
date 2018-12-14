@@ -9,13 +9,13 @@
                 <td>Email</td>
                 <td>Website</td>
                 <td>Logo</td>
-                <td colspan="2">Actions</td>
+                <td colspan="3">Actions</td>
             </tr>
             </thead>
             <tbody>
             @foreach($companies as $company)
                 <tr>
-                    <td>{{ $company->name }}</td>
+                    <td><a href="{{ action('CompanyController@show', $company->id) }}">{{ $company->name }}</a></td>
                     <td>{{ $company->email }}</td>
                     <td>{{ $company->website }}</td>
                     <td>
@@ -23,6 +23,7 @@
                             <img src="{{ asset('/storage/logos/' . $company->logo) }}" style="width: 35px;">
                         @endif
                     </td>
+                    <td><a href="{{ action('CompanyController@show', $company->id) }}" class="btn btn-primary">View</a></td>
                     <td><a href="{{ action('CompanyController@edit', $company->id) }}" class="btn btn-primary">Edit</a></td>
                     <td>
                         <form action="{{ action('CompanyController@destroy', $company->id) }}" method="post">

@@ -22,6 +22,7 @@ Route::group(['middleware' => ['web', 'auth']], function() {
     Route::get('/home', 'HomeController@index')->name('home');
 
     Route::get('/companies', 'CompanyController@index');
+    Route::get('/show/company/{id}', 'CompanyController@show');
     Route::get('/create/company', 'CompanyController@create');
     Route::post('/create/company', 'CompanyController@store');
     Route::get('/edit/company/{id}', 'CompanyController@edit');
@@ -29,6 +30,7 @@ Route::group(['middleware' => ['web', 'auth']], function() {
     Route::delete('/delete/company/{id}', 'CompanyController@destroy');
 
     Route::get('/employees', 'EmployeeController@index');
+    Route::get('/show/employee/{id}', 'EmployeeController@show');
     Route::get('/create/employee', 'EmployeeController@create');
     Route::post('/create/employee', 'EmployeeController@store');
     Route::get('/edit/employee/{id}', 'EmployeeController@edit');
