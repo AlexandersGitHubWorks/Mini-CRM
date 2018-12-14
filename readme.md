@@ -1,7 +1,7 @@
-##Mini-CRM
-######Laravel task
-Need to create admin panel to manage companies.
-Basically, project to manage companies and their employees.
+<p>##Mini-CRM</p>
+<p>######Laravel task</p>
+<p>Need to create admin panel to manage companies.</p>
+<p>Basically, project to manage companies and their employees.</p>
 
 Requirements:
 - Basic Laravel Auth: ability to log in as administrator

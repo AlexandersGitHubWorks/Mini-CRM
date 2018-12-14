@@ -13,7 +13,11 @@ class Company extends Model
         $this->name = $data['name'];
         $this->email = $data['email'];
         $this->website = $data['website'];
-        $this->logo = $data['logo']->getClientOriginalName();
+        if(array_key_exists('logo', $data)) {
+            $this->logo = $data['logo']->getClientOriginalName();
+        } else {
+            $this->logo = '';
+        }
         $this->save();
         return 1;
     }
@@ -24,7 +28,11 @@ class Company extends Model
         $company->name = $data['name'];
         $company->email = $data['email'];
         $company->website = $data['website'];
-        $company->logo = $data['logo']->getClientOriginalName();
+        if(array_key_exists('logo', $data)) {
+            $company->logo = $data['logo']->getClientOriginalName();
+        } else {
+            $company->logo = '';
+        }
         $company->save();
         return 1;
     }
