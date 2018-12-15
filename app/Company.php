@@ -36,4 +36,9 @@ class Company extends Model
         $company->save();
         return 1;
     }
+
+    public function employee()
+    {
+        return $this->hasMany('App\Employee', 'company', 'id');
+    }
 }

@@ -18,10 +18,7 @@
                 <tr>
                     <td>{{ $employee->first_name }}</td>
                     <td>{{ $employee->last_name }}</td>
-                    <td>@foreach($companies as $company)
-                            {{ $company->id == $employee->company ? $company->name : '' }}
-                        @endforeach
-                    </td>
+                    <td>{!!  $employee->company()->first() ? $employee->company()->first()->name : '<span class="badge badge-secondary">Unemployed</span>' !!}</td>
                     <td>{{ $employee->email }}</td>
                     <td>{{ $employee->phone }}</td>
                     <td><a href="{{ action('EmployeeController@show', $employee->id) }}" class="btn btn-primary">View</a></td>

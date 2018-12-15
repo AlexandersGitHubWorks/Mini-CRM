@@ -24,9 +24,7 @@ class EmployeeController extends Controller
     public function index()
     {
         $employees = Employee::paginate(10);
-        $companies = Company::select('name', 'id')->get();
-
-        return view('employee.index', ['employees'=>$employees, 'companies'=>$companies]);
+        return view('employee.index', compact('employees'));
     }
 
     /**

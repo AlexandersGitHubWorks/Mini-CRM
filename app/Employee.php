@@ -29,4 +29,9 @@ class Employee extends Model
         $employee->save();
         return 1;
     }
+
+    public function company()
+    {
+        return $this->belongsTo('App\Company', 'company', 'id');
+    }
 }
