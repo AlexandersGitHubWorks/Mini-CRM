@@ -2,19 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CompanyRequest;
 use Faker\Provider\Image;
 use Illuminate\Http\Request;
 use App\Company;
 
 class CompanyController extends Controller
 {
-
-    private $validate_params = [
-        'name'      => 'required|string|max:255',
-        'email'     => 'nullable|string|email|max:255',
-        'website'   => 'nullable|string|max:255',
-        'logo'      => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=100,min_height=100',
-    ];
 
     /**
      * Display a listing of the resource.
@@ -43,7 +37,7 @@ class CompanyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CompanyRequest $request)
     {
         // Store companies logos in storage/app/public folder and make them accessible from public
         if ($request->hasFile('logo')) {
@@ -53,7 +47,7 @@ class CompanyController extends Controller
         }
 
         $company = new Company();
-        $data = $this->validate($request, $this->validate_params);
+        $data = $request->except('_token');
 
         $company->saveCompany($data);
         return redirect('/home')->with('success', 'Company has been created');
@@ -90,7 +84,7 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CompanyRequest $request, $id)
     {
         if ($request->hasFile('logo')) {
             $file = $request->file('logo');
@@ -99,7 +93,7 @@ class CompanyController extends Controller
         }
 
         $company = new Company();
-        $data = $this->validate($request, $this->validate_params);
+        $data = $request->except(['_token', '_method']);
 
         $data['id'] = $id;
         $company->updateCompany($data);

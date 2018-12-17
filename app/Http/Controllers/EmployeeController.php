@@ -4,17 +4,11 @@ namespace App\Http\Controllers;
 use App\Employee;
 use App\Company;
 
+use App\Http\Requests\EmployeeRequest;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
-    protected $validate_params = [
-        'first_name'    => 'required|string|max:255',
-        'last_name'     => 'required|string|max:255',
-        'company'       => 'nullable|string|max:255',
-        'email'         => 'nullable|string|email|max:255',
-        'phone'         => 'nullable|string|max:255',
-    ];
 
     /**
      * Display a listing of the resource.
@@ -44,10 +38,10 @@ class EmployeeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EmployeeRequest $request)
     {
         $employee = new Employee();
-        $data = $this->validate($request, $this->validate_params);
+        $data = $request->except('_token');
 
         $employee->saveEmployee($data);
         return redirect('/home')->with('success', 'Employee has been created');
@@ -85,10 +79,10 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EmployeeRequest $request, $id)
     {
         $employee = new Employee();
-        $data = $this->validate($request, $this->validate_params);
+        $data = $request->except(['_token', '_method']);
         $data['id'] = $id;
         $employee->updateEmployee($data);
 
