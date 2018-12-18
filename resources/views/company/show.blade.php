@@ -1,8 +1,13 @@
-@extends('layouts.app')
+@extends('adminlte::page')
+
+@section('content_header')
+    <div class="container">
+        <h1>{{ $company->name }}</h1>
+    </div>
+@stop
 
 @section('content')
     <div class="container">
-        <h1>Name: {{ $company->name }}</h1>
         <p><img src="{{ asset('storage/logos/' . $company->logo) }}"></p>
         <p>Email: {{ $company->email }}</p>
         <p>Website: {{ $company->website }}</p>
@@ -15,4 +20,4 @@
             </form>
         </div>
     <div>
-@endsection
+@stop

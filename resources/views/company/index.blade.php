@@ -1,15 +1,21 @@
-@extends('layouts.app')
+@extends('adminlte::page')
+
+@section('content_header')
+    <div class="container">
+        <h1>All Companies</h1>
+    </div>
+@stop
 
 @section('content')
     <div class="container">
         <table class="table table-striped">
-            <thead>
+            <thead class="thead-dark">
             <tr>
-                <td>Name</td>
-                <td>Email</td>
-                <td>Website</td>
-                <td>Logo</td>
-                <td colspan="3">Actions</td>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Website</th>
+                <th scope="col">Logo</th>
+                <th scope="col" colspan="3">Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -38,4 +44,4 @@
         </table>
         {{ $companies->links() }}
     <div>
-@endsection
+@stop

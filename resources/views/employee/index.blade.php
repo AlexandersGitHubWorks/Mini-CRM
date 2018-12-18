@@ -1,16 +1,22 @@
-@extends('layouts.app')
+@extends('adminlte::page')
+
+@section('content_header')
+    <div class="container">
+        <h1>All Employees</h1>
+    </div>
+@stop
 
 @section('content')
     <div class="container">
         <table class="table table-striped">
-            <thead>
+            <thead class="thead-dark">
             <tr>
-                <td>First Name</td>
-                <td>Last Name</td>
-                <td>Company</td>
-                <td>email</td>
-                <td>Phone</td>
-                <td colspan="3">Actions</td>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Company</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col" colspan="3">Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -37,5 +43,5 @@
             </tbody>
         </table>
         {{ $employees->links() }}
-        <div>
-@endsection
+    <div>
+@stop

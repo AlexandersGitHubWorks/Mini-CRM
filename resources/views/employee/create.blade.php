@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('content')
     <div class="container">
@@ -12,7 +12,7 @@
             </div><br/>
         @endif
         <div class="row">
-            <form method="post" action="{{ route('employees.store' ) }}">
+            <form method="post" action="{{ route('employees.store') }}">
                 <div class="form-group">
                     <input type="hidden" value="{{ csrf_token() }}" name="_token"/>
                     <label for="first_name">Employee First Name:</label>
@@ -43,4 +43,4 @@
             </form>
         </div>
     </div>
-@endsection
+@stop
