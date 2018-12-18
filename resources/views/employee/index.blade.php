@@ -21,8 +21,10 @@
                     <td>{!!  $employee->company()->first() ? $employee->company()->first()->name : '<span class="badge badge-secondary">Unemployed</span>' !!}</td>
                     <td>{{ $employee->email }}</td>
                     <td>{{ $employee->phone }}</td>
-                    <td><a href="{{ action('EmployeeController@show', $employee->id) }}" class="btn btn-primary">View</a></td>
-                    <td><a href="{{ action('EmployeeController@edit', $employee->id) }}" class="btn btn-primary">Edit</a></td>
+                    <td><a href="{{ action('EmployeeController@show', $employee->id) }}"
+                           class="btn btn-primary">View</a></td>
+                    <td><a href="{{ action('EmployeeController@edit', $employee->id) }}"
+                           class="btn btn-primary">Edit</a></td>
                     <td>
                         <form action="{{ action('EmployeeController@destroy', $employee->id) }}" method="post">
                             {{ csrf_field() }}
@@ -35,5 +37,5 @@
             </tbody>
         </table>
         {{ $employees->links() }}
-    <div>
+        <div>
 @endsection

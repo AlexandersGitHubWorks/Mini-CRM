@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Employee;
 use App\Company;
-
 use App\Http\Requests\EmployeeRequest;
 use Illuminate\Http\Request;
 
@@ -41,7 +41,7 @@ class EmployeeController extends Controller
     public function store(EmployeeRequest $request)
     {
         $employee = new Employee();
-        $data = $request->except('_token');
+        $data = $request->validated();
 
         $employee->saveEmployee($data);
         return redirect('/home')->with('success', 'Employee has been created');
@@ -82,7 +82,7 @@ class EmployeeController extends Controller
     public function update(EmployeeRequest $request, $id)
     {
         $employee = new Employee();
-        $data = $request->except(['_token', '_method']);
+        $data = $request->validated();
         $data['id'] = $id;
         $employee->updateEmployee($data);
 

@@ -9,8 +9,8 @@
         @endif
 
         <div class="row">
-            <a href="{{ url('/create/company') }}" class="btn btn-success">Create company</a>
-            <a href="{{ url('/companies') }}" class="btn btn-default">All companies</a>
+            <a href="{{ route('companies.create') }}" class="btn btn-success">Create company</a>
+            <a href="{{ route('companies.index') }}" class="btn btn-default">All companies</a>
         </div>
         <br>
         <div class="row">

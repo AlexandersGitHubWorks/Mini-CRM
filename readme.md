@@ -3,6 +3,13 @@
 <p>Need to create admin panel to manage companies.</p>
 <p>Basically, project to manage companies and their employees.</p>
 
+Requirements 2:
+- Сделайте пожалуйста интеграцию Admin LTE.
+- приведите код под PSR стандарт
+- валидация в контроллере не должна быть (почитайте Best Practice)
+- Resource controller - отсутствует (нужно изменить роуты)
+- изменить метод сохранения картинки (валидация должны быть перед сохранением).
+
 Requirements:
 - Basic Laravel Auth: ability to log in as administrator
 - Use database seeds to create first user with email admin@admin.com and password “password”

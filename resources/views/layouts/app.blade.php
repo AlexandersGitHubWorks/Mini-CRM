@@ -26,11 +26,11 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
-                <a class="navbar-brand" href="{{ url('/home') }}">Home</a>
-                <a class="navbar-brand" href="{{ url('/companies') }}">Companies</a>
-                <a class="navbar-brand" href="{{ url('/create/company') }}">Create Company</a>
-                <a class="navbar-brand" href="{{ url('/employees') }}">Employees</a>
-                <a class="navbar-brand" href="{{ url('/create/employee') }}">Create Employee</a>
+                <a class="navbar-brand" href="{{ route('home') }}">Home</a>
+                <a class="navbar-brand" href="{{ route('companies.index') }}">Companies</a>
+                <a class="navbar-brand" href="{{ route('companies.create') }}">Create Company</a>
+                <a class="navbar-brand" href="{{ route('employees.index') }}">Employees</a>
+                <a class="navbar-brand" href="{{ route('employees.create') }}">Create Employee</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>

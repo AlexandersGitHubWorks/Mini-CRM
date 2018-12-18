@@ -9,12 +9,12 @@
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
-            </div><br />
+            </div><br/>
         @endif
         <div class="row">
-            <form method="post" action="{{ url('/create/company' )}}" enctype="multipart/form-data">
+            <form method="post" action="{{ route('companies.store') }}" enctype="multipart/form-data">
                 <div class="form-group">
-                    <input type="hidden" value="{{ csrf_token() }}" name="_token" />
+                    <input type="hidden" value="{{ csrf_token() }}" name="_token"/>
                     <label for="name">Company Name:</label>
                     <input type="text" class="form-control" name="name"/>
                 </div>

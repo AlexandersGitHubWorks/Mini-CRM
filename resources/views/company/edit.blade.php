@@ -9,24 +9,25 @@
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
-            </div><br />
+            </div><br/>
         @endif
         <div class="row">
-            <form method="post" action="{{ action('CompanyController@update', $company->id) }}" enctype="multipart/form-data">
+            <form method="post" action="{{ action('CompanyController@update', $company->id) }}"
+                  enctype="multipart/form-data">
                 {{ csrf_field() }}
-                <input name="_method" type="hidden" value="post">
+                <input name="_method" type="hidden" value="PATCH">
                 <div class="form-group">
-                    <input type="hidden" value="{{ csrf_token() }}" name="_token" />
+                    <input type="hidden" value="{{ csrf_token() }}" name="_token"/>
                     <label for="name">Company New Name:</label>
                     <input type="text" class="form-control" name="name" value="{{ $company->name }}">
                 </div>
                 <div class="form-group">
-                    <input type="hidden" value="{{ csrf_token() }}" name="_token" />
+                    <input type="hidden" value="{{ csrf_token() }}" name="_token"/>
                     <label for="email">Company New Email:</label>
                     <input type="text" class="form-control" name="email" value="{{ $company->email }}">
                 </div>
                 <div class="form-group">
-                    <input type="hidden" value="{{ csrf_token() }}" name="_token" />
+                    <input type="hidden" value="{{ csrf_token() }}" name="_token"/>
                     <label for="website">Company New Website:</label>
                     <input type="text" class="form-control" name="website" value="{{ $company->website }}">
                 </div>
